@@ -29,6 +29,7 @@ public:
 
 private:
 	bool write(const LangPack &langpack) const;
+	int writeSubsets(const LangPack &langpack) const;
 
 	std::unique_ptr<ParsedFile> parser_;
 	const Options &options_;

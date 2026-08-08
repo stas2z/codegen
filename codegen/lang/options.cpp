@@ -53,6 +53,17 @@ Options parseOptions() {
 			common::logSetWorkingPath(arg.mid(2));
 
 		// Input path
+		} else if (arg == "--subsets-only") {
+			result.subsetsOnly = true;
+
+		// Sources path
+		} else if (arg == "-s") {
+			if (++i == count) {
+				logError(kErrorInputPathExpected, "Command Line") << "sources path expected after -s";
+				return Options();
+			} else {
+				result.sourcesPath = args.at(i);
+			}
 		} else {
 			if (result.inputPath.isEmpty()) {
 				result.inputPath = arg;
